@@ -690,40 +690,41 @@ c     ------------------------------------------------------------------
      &           '.m'//trim(adjustl(n2char))//
      &           'ff'//trim(adjustl(k2char))
       ! Create integration points file in the work directory.
-      open(150, file=trim(filepath), access="sequential")
+      open(892, file=trim(filepath), access="sequential", 
+     &     status='UNKNOWN')
 c     ------------------------------------------------------------------
 c     WRITE INTEGRATION INFORMATION
 c     ------------------------------------------------------------------
       ! Write subroutine info.
-      write(unit=150, fmt='(A)') 'UMAT subroutine '//trim(umatv)
-      write(unit=150, fmt='(A)') ' '
+      write(unit=892, fmt='(A)') 'UMAT subroutine '//trim(umatv)
+      write(unit=892, fmt='(A)') ' '
       ! Write material name.
-      write(unit=150, fmt='(3A,I3)')'Material: ',
+      write(unit=892, fmt='(3A,I3)')'Material: ',
      &  trim(matname),', Fiber family',k
       ! Write concentration parameters of von Mises distribution.
-      write(unit=150, fmt='(A,F10.2,3A)') 'a    =',a,' | ',
+      write(unit=892, fmt='(A,F10.2,3A)') 'a    =',a,' | ',
      &  'von Mises distribution in-plane concentration,',
      &  ' (-inf < a < inf).'
-      write(unit=150, fmt='(A,F10.2,3A)') 'b    =',b,' | ',
+      write(unit=892, fmt='(A,F10.2,3A)') 'b    =',b,' | ',
      &  'von Mises distribution out-of-plane concentration,',
      &  ' (-inf < b < inf).'
       ! Write integration rule.
-      write(unit=150, fmt='(A,A10,2A)') 'rule =',trim(intrule),' | ',
+      write(unit=892, fmt='(A,A10,2A)') 'rule =',trim(intrule),' | ',
      &  'integration rule.'
       ! Write number of integration points.
-      write(unit=150,fmt='(A,I10,2A)') 'nhem =',niptot,' | ',
+      write(unit=892,fmt='(A,I10,2A)') 'nhem =',niptot,' | ',
      &  'number of integration points on the unit hemisphere.'
       ! Write number of effective integration points.
       write(tolchar,'(E12.2)') tol
-      write(unit=150,fmt='(A,I10,5A)') 'neff =',nipeff,' | ',
+      write(unit=892,fmt='(A,I10,5A)') 'neff =',nipeff,' | ',
      &  'effective number of integration points used on the unit ',
      &  'hemisphere (weight*rho > ',trim(adjustl(tolchar)),').'
-      write(unit=150, fmt='(A)') ' '
+      write(unit=892, fmt='(A)') ' '
 c     ------------------------------------------------------------------
 c     WRITE INTEGRATION POINTS
 c     ------------------------------------------------------------------
       ! Write headings.
-      write(unit=150,fmt='(A6,8A16)')
+      write(unit=892,fmt='(A6,8A16)')
      &  'point','azimuth [deg]','elevation [deg]',
      &  'x [-]','y [-]','z [-]','weight [-]','rho [-]','weight*rho [-]'
 c
@@ -732,20 +733,20 @@ c
       sumw    = 0d0
       sumrhow = 0d0
       do j=1,nipeff
-        write(unit=150, fmt=intform)
+        write(unit=892, fmt=intform)
      &    j,az(j),el(j),x(j),y(j),z(j),w(j),rho(j),rhow(j)
         sumw    = sumw+w(j)
         sumrhow = sumrhow+rhow(j)
       end do
 c
       ! Write sums.
-      write(unit=150, fmt='(A)') ' '
-      write(unit=150, fmt='(A86,E16.6,A16,E16.6)')
+      write(unit=892, fmt='(A)') ' '
+      write(unit=892, fmt='(A86,E16.6,A16,E16.6)')
      &  'Sum',sumw,' ',sumrhow
 c     ------------------------------------------------------------------
 c     CLOSE TEXT FILE
 c     ------------------------------------------------------------------
-      close(150)
+      close(892)
 c
       return
       end subroutine exportpoints

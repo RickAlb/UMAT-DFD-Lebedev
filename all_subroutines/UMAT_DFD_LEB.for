@@ -740,8 +740,8 @@ c     ------------------------------------------------------------------
               ! Throw error and exit analysis. Use Abaqus utility
               ! routine stdb_abqerr to print the error message to the
               ! *.msg file.
-              errormsg = 'INTEGRATION POINTS FILE '//trim(matname)//
-     &                   '.intp'//trim(adjustl(iichar))//' NOT FOUND.'
+              errormsg = 'INTEGRATION POINTS FILE '//
+     &                   trim(intpointsfile)//' NOT FOUND.'
               call stdb_abqerr(-3,errormsg,intv,realv,charv)
               call xit
             end if
@@ -798,7 +798,7 @@ c     ------------------------------------------------------------------
               end if
             end if
           end do
-          ! Save number of optimized integration points.
+          ! Save the effective number of optimized integration points.
           npeff(ii) = jj
           
           ! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
