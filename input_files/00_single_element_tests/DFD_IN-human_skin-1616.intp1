@@ -2,7 +2,7 @@ File generated with Matlab R2023a
 
  name  value     description
 <----><--------><----------------------------------------------------------------------
-a    =      0.00 | von Mises distribution in-plane concentration, (-inf < a < inf).
+a    =      2.06 | von Mises distribution in-plane concentration, (-inf < a < inf).
 b    =     12.36 | von Mises distribution out-of-plane concentration, (-inf < b < inf).
 rule =  TrigMesh | integration rule.
 
@@ -11,7 +11,7 @@ below is used to identify the beginning of the list of points. Integration point
 given for the full unit sphere. You can specify the weights and the values of the von Mises
 distribution rho, but the subroutine UMAT_DFD_LEB will use only the last column of the
 integrands weight*rho for the computation. Remember to update the concentration parameters
-a and b respecting the number format F10.2.
+a and b respecting the Fortran number format F10.2.
 
 Points start
  point   azimuth [deg] elevation [deg]           x [-]           y [-]           z [-]      weight [-]         rho [-]  weight*rho [-]
