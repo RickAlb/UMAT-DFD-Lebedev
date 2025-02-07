@@ -113,12 +113,12 @@ Notes:
 ### Reading integration points from file
 When the integration scheme flag is `rint` is `999`, the integration points must be given on differet files for each fiber family using the material name `MATNAME` as file name, and the progrssive file extension `.intp[i]` to identify the ith family.
 For example, a material named `DFD_IN-example_material` with `N` fiber families must be provided with the following files in the analysis' folder:
-- `DFD_IN-test_material.intp1` for the 1st fiber family;
-- `DFD_IN-test_material.intp2` for the 2nd fiber family;
+- `DFD_IN-example_material.intp1` for the 1st fiber family;
+- `DFD_IN-example_material.intp2` for the 2nd fiber family;
 - ...
-- `DFD_IN-test_material.intpN` for the Nth fiber family;
+- `DFD_IN-example_material.intpN` for the Nth fiber family;
 
-Example `.intp[i]` files ar provied in [00_single_element_tests](/input_files/00_single_element_tests)
+Examples of `.intp[i]` files are provied in the input files folders [00_single_element_tests](/input_files/00_single_element_tests) and [05_further_examples](/input_files/05_further_examples).
 
 ## Prestress definition (optional)
 Prestress is supported **ONLY** when the following two conditions are met:
