@@ -35,7 +35,7 @@ To ensure the subroutine compiles correctly, open the environment file `abaqus_v
 
 The subroutine includes the Fortran interface files `SMAAspUserArrays.hdr` and `SMAAspUserUtilities.hdr` required to create and access the pointers (see [2.1.23 Allocatable arrays, Abaqus User Subroutines Reference Guide]()).
 For the older versions of Abaqus, e.g. Abaqus 6.14, these files are located in `%AbqInstall%\Abaqus\6.14-1\code\include`.
-In Abaqus 2019, these files are located in `%AbqInstall%\SimulationServices\V6R2019x\win_b64\code\include`, but contain an incorrect `#` character. To make them work properly, remove the extra `#` and save.
+In Abaqus 2019, these files are located in `%AbqInstall%\SimulationServices\V6R2019x\win_b64\code\include`, but contain an incorrect `#` character. To make them work properly, open them with a text editor, remove the extra `#` and save.
 
 ## Abaqus input material definition
 The subroutine `UMAT_DFD_LEB.for` supports up to 100 different DFD materials defined at the same time during the analysis.
